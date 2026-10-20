@@ -1,0 +1,1734 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Soumendra Sir's Biology Classes - NEET CHEMISTRY XI EXAM SERIES 10 SET A</title>
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Chart.js for graphical analytics -->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <!-- MathJax for rendering chemistry and physics equations -->
+    <script>
+        window.MathJax = {
+            tex: {
+                inlineMath: [['$', '$'], ['\\(', '\\)']],
+                displayMath: [['$$', '$$'], ['\\[', '\\]']]
+            },
+            svg: { fontCache: 'global' }
+        };
+    </script>
+    <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap');
+        
+        * {
+            user-select: none;
+            -webkit-user-select: none;
+            -moz-user-select: none;
+            -ms-user-select: none;
+        }
+        
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #0f172a;
+            color: #1e293b;
+            overflow-x: hidden;
+        }
+
+        /* Anti-Photography & Screen Capture Noise Security Mesh */
+        .security-mesh {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100vw;
+            height: 100vh;
+            pointer-events: none;
+            z-index: 9999;
+            opacity: 0.035;
+            background: repeating-linear-gradient(
+                45deg,
+                #000,
+                #000 1px,
+                #fff 1px,
+                #fff 2px
+            );
+        }
+
+        .watermark-overlay {
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%) rotate(-30deg);
+            font-size: 3.5rem;
+            font-weight: 900;
+            color: rgba(100, 116, 139, 0.07);
+            pointer-events: none;
+            z-index: 9998;
+            white-space: nowrap;
+            text-align: center;
+            line-height: 1.2;
+        }
+
+        /* CBT Status Palette Styling */
+        .dot-status {
+            width: 38px;
+            height: 38px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 0.85rem;
+            font-weight: 700;
+            cursor: pointer;
+            transition: all 0.2s ease;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+            position: relative;
+        }
+
+        .dot-not-visited { background-color: #e2e8f0; color: #475569; border: 1px solid #cbd5e1; }
+        .dot-not-answered { background-color: #ef4444; color: #ffffff; }
+        .dot-answered { background-color: #22c55e; color: #ffffff; }
+        .dot-marked { background-color: #a855f7; color: #ffffff; }
+        .dot-ans-marked { background-color: #f97316; color: #ffffff; }
+        .dot-active { ring: 3px; ring-color: #2563eb; transform: scale(1.1); z-index: 10; border: 2px solid #1e40af !important; }
+
+        .custom-scrollbar::-webkit-scrollbar {
+            width: 6px;
+        }
+        .custom-scrollbar::-webkit-scrollbar-track {
+            background: #f1f5f9;
+        }
+        .custom-scrollbar::-webkit-scrollbar-thumb {
+            background: #cbd5e1;
+            border-radius: 4px;
+        }
+        .custom-scrollbar::-webkit-scrollbar-thumb:hover {
+            background: #94a3b8;
+        }
+
+        /* Prevent Selection */
+        input, button, label {
+            user-select: none;
+        }
+
+        /* Math formula display fix */
+        .mjx-chtml {
+            font-size: 105% !important;
+        }
+    </style>
+</head>
+<body class="bg-slate-900 text-slate-800 min-h-screen flex flex-col justify-between" oncontextmenu="return false;">
+
+    <!-- Anti-Photography Dynamic Security Mesh -->
+    <div class="security-mesh"></div>
+    <div class="watermark-overlay" id="watermarkText">SOUMENDRA SIR'S BIOLOGY CLASSES<br>8910587106 - NEET CBT</div>
+
+    <!-- MAIN APP CONTAINER -->
+    <div id="appContainer" class="w-full min-h-screen flex flex-col justify-between">
+
+        <!-- SCREEN 1: CANDIDATE LOGIN & AUTHENTICATION -->
+        <div id="loginScreen" class="flex-1 flex items-center justify-center p-4">
+            <div class="bg-white w-full max-w-2xl rounded-2xl shadow-2xl overflow-hidden border border-slate-200">
+                <div class="bg-gradient-to-r from-blue-900 via-indigo-900 to-slate-900 p-6 text-white text-center relative">
+                    <h1 class="text-2xl md:text-3xl font-extrabold tracking-tight">Soumendra Sir's Biology Classes</h1>
+                    <p class="text-blue-200 text-sm mt-1 font-medium"><i class="fa-solid fa-phone-volume mr-2"></i>Contact: 8910587106</p>
+                    <div class="mt-4 bg-blue-800/50 backdrop-blur-md rounded-lg p-2 border border-blue-400/30">
+                        <span class="text-yellow-300 font-bold tracking-wider text-base md:text-lg">NEET CHEMISTRY XI EXAM SERIES 10 SET A</span>
+                        <div class="text-xs text-slate-200 font-medium mt-0.5">Topic: P-Block Elements (Group 13 to Group 18)</div>
+                    </div>
+                </div>
+
+                <div class="p-6 md:p-8 space-y-6">
+                    <form id="authForm" onsubmit="handleAuthentication(event)" class="space-y-5">
+                        <div>
+                            <label class="block text-sm font-semibold text-slate-700 mb-1">Candidate Full Name <span class="text-red-500">*</span></label>
+                            <div class="relative">
+                                <span class="absolute inset-y-0 left-0 flex items-center pl-3 text-slate-400"><i class="fa-solid fa-user"></i></span>
+                                <input type="text" id="candidateNameInput" required placeholder="Enter your full name" 
+                                    class="w-full pl-10 pr-4 py-3 border border-slate-300 rounded-xl focus:ring-2 focus:ring-blue-600 focus:border-blue-600 outline-none transition text-slate-800 font-medium">
+                            </div>
+                        </div>
+
+                        <div>
+                            <label class="block text-sm font-semibold text-slate-700 mb-1">Exam Date Password (Format: DDMMYYYY) <span class="text-red-500">*</span></label>
+                            <div class="relative">
+                                <span class="absolute inset-y-0 left-0 flex items-center pl-3 text-slate-400"><i class="fa-solid fa-key"></i></span>
+                                <input type="password" id="examPasswordInput" required placeholder="Enter today's date password (e.g. 20102026)" 
+                                    class="w-full pl-10 pr-4 py-3 border border-slate-300 rounded-xl focus:ring-2 focus:ring-blue-600 focus:border-blue-600 outline-none transition text-slate-800 font-medium">
+                            </div>
+                            <p class="text-xs text-slate-500 mt-1"><i class="fa-solid fa-circle-info mr-1"></i>Password must match current date of examination in DDMMYYYY format.</p>
+                        </div>
+
+                        <div>
+                            <label class="block text-sm font-semibold text-slate-700 mb-1">Captcha Security Verification <span class="text-red-500">*</span></label>
+                            <div class="flex items-center gap-3 mb-2">
+                                <div id="captchaDisplay" class="bg-slate-800 text-yellow-400 font-mono text-2xl font-black px-6 py-2 rounded-xl tracking-widest select-none border border-slate-700 shadow-inner">----</div>
+                                <button type="button" onclick="generateCaptcha()" class="p-3 bg-slate-100 text-slate-700 rounded-xl hover:bg-slate-200 transition font-medium text-sm flex items-center gap-1">
+                                    <i class="fa-solid fa-rotate-right"></i> Refresh
+                                </button>
+                            </div>
+                            <input type="text" id="captchaInput" required placeholder="Enter captcha code above" 
+                                class="w-full px-4 py-3 border border-slate-300 rounded-xl focus:ring-2 focus:ring-blue-600 focus:border-blue-600 outline-none transition text-slate-800 font-medium">
+                        </div>
+
+                        <!-- EXAM RULES SUMMARY BOX -->
+                        <div class="bg-slate-50 border border-slate-200 rounded-xl p-4 space-y-2 text-xs text-slate-600">
+                            <h4 class="font-bold text-slate-800 text-sm flex items-center gap-1.5"><i class="fa-solid fa-shield-halved text-blue-600"></i> CBT Rules & Guidelines:</h4>
+                            <ul class="list-disc pl-5 space-y-1">
+                                <li><strong>Total Questions:</strong> 45 Questions (Group 13 to 18 P-Block Chemistry).</li>
+                                <li><strong>Total Time:</strong> 60 Minutes (1 Hour).</li>
+                                <li><strong>Marking Scheme:</strong> <span class="text-green-600 font-bold">+4</span> for correct response, <span class="text-red-500 font-bold">-1</span> for incorrect, <span class="text-slate-500 font-bold">0</span> for unattempted. Total: 180 Marks.</li>
+                                <li><strong>Proctoring Notice:</strong> Fullscreen mode is required. Switching tabs or window minimizations will trigger automatic proctoring warnings (Limit: 3 warnings before auto-submission).</li>
+                            </ul>
+                        </div>
+
+                        <button type="submit" class="w-full bg-blue-600 hover:bg-blue-700 text-white font-bold py-3.5 px-6 rounded-xl shadow-lg transition duration-200 flex items-center justify-center gap-2 text-base">
+                            <i class="fa-solid fa-right-to-bracket"></i> Verify Credentials & Start Exam
+                        </button>
+                    </form>
+                </div>
+            </div>
+        </div>
+
+        <!-- SCREEN 2: PROFESSIONAL DESKTOP CBT INTERFACE -->
+        <div id="cbtScreen" class="hidden flex-1 flex flex-col bg-slate-100 min-h-screen">
+            <!-- CBT HEADER -->
+            <header class="bg-slate-900 text-white px-4 py-3 flex flex-wrap items-center justify-between border-b border-slate-800 shadow-md">
+                <div class="flex items-center space-x-3">
+                    <div class="bg-blue-600 p-2 rounded-lg text-white font-black text-xl">
+                        <i class="fa-solid fa-vial-virus"></i>
+                    </div>
+                    <div>
+                        <h2 class="font-bold text-base md:text-lg leading-tight text-slate-100">Soumendra Sir's Biology Classes <span class="text-xs bg-blue-800 text-blue-200 px-2 py-0.5 rounded-full ml-2">8910587106</span></h2>
+                        <p class="text-xs text-slate-400">NEET CHEMISTRY XI EXAM SERIES 10 SET A - P-Block Elements</p>
+                    </div>
+                </div>
+
+                <div class="flex items-center space-x-6 mt-2 md:mt-0">
+                    <div class="bg-slate-800 px-3 py-1.5 rounded-lg border border-slate-700 text-xs">
+                        <span class="text-slate-400">Candidate:</span>
+                        <span id="cbtCandidateName" class="font-bold text-yellow-400 ml-1">Candidate</span>
+                    </div>
+
+                    <div class="bg-red-950/80 border border-red-500/50 px-4 py-1.5 rounded-xl flex items-center space-x-2 text-red-300">
+                        <i class="fa-regular fa-clock text-lg animate-pulse"></i>
+                        <span class="text-xs uppercase font-semibold text-red-400">Time Left:</span>
+                        <span id="timerDisplay" class="font-mono text-xl font-bold text-red-200">60:00</span>
+                    </div>
+                </div>
+            </header>
+
+            <!-- CBT CONTENT BODY -->
+            <div class="flex-1 flex flex-col lg:flex-row overflow-hidden">
+                <!-- LEFT QUESTION PANE -->
+                <div class="flex-1 flex flex-col bg-white overflow-y-auto p-4 md:p-6 custom-scrollbar justify-between">
+                    <div>
+                        <!-- Question Header & Type Tag -->
+                        <div class="flex items-center justify-between border-b border-slate-200 pb-3 mb-4">
+                            <div class="flex items-center space-x-3">
+                                <span class="bg-blue-900 text-white font-bold px-3 py-1 rounded-lg text-sm">
+                                    Question <span id="currentQNum">1</span> / 45
+                                </span>
+                                <span id="qTypeBadge" class="bg-slate-100 text-slate-700 border border-slate-300 px-3 py-1 rounded-lg text-xs font-semibold">
+                                    Statement Based
+                                </span>
+                            </div>
+                            <div class="text-xs text-slate-500 font-medium">
+                                Marks: <span class="text-green-600 font-bold">+4</span> | <span class="text-red-500 font-bold">-1</span>
+                            </div>
+                        </div>
+
+                        <!-- Question Text Render Box -->
+                        <div id="questionTextContainer" class="text-slate-800 text-sm md:text-base font-medium space-y-4 mb-6 leading-relaxed">
+                            <!-- Dynamically loaded -->
+                        </div>
+
+                        <!-- Diagram / Structure Container (If exists) -->
+                        <div id="diagramContainer" class="hidden mb-6 p-4 bg-slate-50 border border-slate-200 rounded-xl flex justify-center items-center">
+                            <!-- SVG structure inserted dynamically -->
+                        </div>
+
+                        <!-- Options List -->
+                        <div id="optionsContainer" class="space-y-3 mb-6">
+                            <!-- Options rendered dynamically -->
+                        </div>
+                    </div>
+
+                    <!-- CBT CONTROL BUTTONS -->
+                    <div class="pt-4 border-t border-slate-200 flex flex-wrap items-center justify-between gap-3 bg-white sticky bottom-0">
+                        <div class="flex flex-wrap items-center gap-2">
+                            <button onclick="clearResponse()" class="px-4 py-2 bg-slate-100 text-slate-700 hover:bg-slate-200 border border-slate-300 rounded-xl text-xs font-bold transition flex items-center gap-1.5">
+                                <i class="fa-solid fa-eraser"></i> Clear Response
+                            </button>
+                            <button onclick="markForReviewAndNext()" class="px-4 py-2 bg-purple-600 hover:bg-purple-700 text-white rounded-xl text-xs font-bold transition flex items-center gap-1.5 shadow">
+                                <i class="fa-solid fa-bookmark"></i> Mark for Review & Next
+                            </button>
+                        </div>
+
+                        <div class="flex items-center gap-2">
+                            <button onclick="navigateQuestion(-1)" class="px-4 py-2 bg-slate-200 hover:bg-slate-300 text-slate-800 rounded-xl text-xs font-bold transition flex items-center gap-1">
+                                <i class="fa-solid fa-chevron-left"></i> Previous
+                            </button>
+                            <button onclick="saveAndNext()" class="px-5 py-2.5 bg-blue-600 hover:bg-blue-700 text-white rounded-xl text-xs font-bold transition flex items-center gap-1.5 shadow-md">
+                                Save & Next <i class="fa-solid fa-chevron-right"></i>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- RIGHT SIDE QUESTION STATUS PALETTE -->
+                <div class="w-full lg:w-80 bg-slate-50 border-l border-slate-200 p-4 flex flex-col justify-between overflow-y-auto custom-scrollbar">
+                    <div>
+                        <h3 class="font-bold text-slate-800 text-sm mb-3 flex items-center justify-between border-b pb-2">
+                            <span><i class="fa-solid fa-grip-vertical text-blue-600 mr-2"></i>Question Palette</span>
+                            <span class="text-xs bg-slate-200 text-slate-700 px-2 py-0.5 rounded-full font-bold" id="attemptCountBadge">0/45 Ans</span>
+                        </h3>
+
+                        <!-- PALETTE COLOR LEGEND -->
+                        <div class="grid grid-cols-2 gap-2 text-xs mb-4 bg-white p-3 rounded-xl border border-slate-200 shadow-sm">
+                            <div class="flex items-center gap-2">
+                                <div class="w-3.5 h-3.5 rounded-full bg-slate-200 border border-slate-400"></div>
+                                <span class="text-slate-600">Not Visited</span>
+                            </div>
+                            <div class="flex items-center gap-2">
+                                <div class="w-3.5 h-3.5 rounded-full bg-red-500"></div>
+                                <span class="text-slate-600">Not Answered</span>
+                            </div>
+                            <div class="flex items-center gap-2">
+                                <div class="w-3.5 h-3.5 rounded-full bg-green-500"></div>
+                                <span class="text-slate-600">Answered</span>
+                            </div>
+                            <div class="flex items-center gap-2">
+                                <div class="w-3.5 h-3.5 rounded-full bg-purple-500"></div>
+                                <span class="text-slate-600">Marked Review</span>
+                            </div>
+                            <div class="col-span-2 flex items-center gap-2 border-t pt-1.5 mt-0.5">
+                                <div class="w-3.5 h-3.5 rounded-full bg-orange-500"></div>
+                                <span class="text-slate-600">Ans & Marked for Review</span>
+                            </div>
+                        </div>
+
+                        <!-- PALETTE DOT GRID -->
+                        <div id="statusDotGrid" class="grid grid-cols-5 gap-2.5 py-2">
+                            <!-- 45 Dynamic colorful dots -->
+                        </div>
+                    </div>
+
+                    <!-- SUBMIT TEST BUTTON -->
+                    <div class="pt-4 border-t border-slate-200 mt-4">
+                        <button onclick="confirmSubmitExam()" class="w-full bg-red-600 hover:bg-red-700 text-white font-bold py-3 px-4 rounded-xl shadow-md transition flex items-center justify-center gap-2 text-sm">
+                            <i class="fa-solid fa-paper-plane"></i> Submit Final Test
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- SCREEN 3: PERFORMANCE FEEDBACK & COMPREHENSIVE REPORT -->
+        <div id="reportScreen" class="hidden flex-1 bg-slate-100 p-4 md:p-8 overflow-y-auto">
+            <div class="max-w-5xl mx-auto space-y-6">
+                
+                <!-- REPORT HEADER -->
+                <div class="bg-white rounded-2xl shadow-xl border border-slate-200 p-6 md:p-8 relative overflow-hidden">
+                    <div class="absolute top-0 left-0 w-full h-3 bg-gradient-to-r from-blue-600 via-indigo-600 to-purple-600"></div>
+                    <div class="flex flex-wrap justify-between items-start gap-4">
+                        <div>
+                            <span class="bg-blue-100 text-blue-800 text-xs font-bold px-3 py-1 rounded-full uppercase tracking-wider">Official Scorecard</span>
+                            <h2 class="text-2xl md:text-3xl font-extrabold text-slate-900 mt-2">Soumendra Sir's Biology Classes</h2>
+                            <p class="text-sm text-slate-600 mt-0.5"><i class="fa-solid fa-phone text-blue-600 mr-1"></i> Helpline: 8910587106</p>
+                            <p class="text-xs font-semibold text-indigo-700 mt-2 bg-indigo-50 inline-block px-3 py-1 rounded-lg border border-indigo-200">
+                                NEET CHEMISTRY XI EXAM SERIES 10 SET A: P-Block Elements
+                            </p>
+                        </div>
+                        <div class="text-right bg-slate-50 p-4 rounded-xl border border-slate-200">
+                            <div class="text-xs text-slate-500 font-semibold uppercase">Candidate Name</div>
+                            <div id="reportCandidateName" class="text-lg font-bold text-slate-800">Candidate</div>
+                            <div class="text-xs text-slate-400 mt-1" id="reportDateStamp">Date: 20/10/2026</div>
+                        </div>
+                    </div>
+
+                    <!-- SCORE STATS CARDS GRID -->
+                    <div class="grid grid-cols-2 md:grid-cols-4 gap-4 mt-6">
+                        <div class="bg-blue-50 border border-blue-200 p-4 rounded-xl text-center">
+                            <div class="text-xs text-blue-600 font-bold uppercase">Total Score</div>
+                            <div class="text-2xl md:text-3xl font-extrabold text-blue-900 mt-1" id="reportScore">0 / 180</div>
+                            <div class="text-xs text-blue-700 mt-0.5 font-medium" id="reportPercentage">0%</div>
+                        </div>
+
+                        <div class="bg-green-50 border border-green-200 p-4 rounded-xl text-center">
+                            <div class="text-xs text-green-600 font-bold uppercase">Correct Responses</div>
+                            <div class="text-2xl md:text-3xl font-extrabold text-green-700 mt-1" id="reportCorrect">0</div>
+                            <div class="text-xs text-green-600 mt-0.5 font-medium" id="reportAccuracy">Accuracy: 0%</div>
+                        </div>
+
+                        <div class="bg-red-50 border border-red-200 p-4 rounded-xl text-center">
+                            <div class="text-xs text-red-600 font-bold uppercase">Incorrect Responses</div>
+                            <div class="text-2xl md:text-3xl font-extrabold text-red-700 mt-1" id="reportIncorrect">0</div>
+                            <div class="text-xs text-red-600 mt-0.5 font-medium">Negative: -<span id="reportNegative">0</span></div>
+                        </div>
+
+                        <div class="bg-slate-100 border border-slate-300 p-4 rounded-xl text-center">
+                            <div class="text-xs text-slate-600 font-bold uppercase">Unattempted</div>
+                            <div class="text-2xl md:text-3xl font-extrabold text-slate-700 mt-1" id="reportUnattempted">0</div>
+                            <div class="text-xs text-slate-500 mt-0.5 font-medium">Out of 45 Qs</div>
+                        </div>
+                    </div>
+
+                    <!-- WHATSAPP & IMAGE GENERATION ACTION BAR -->
+                    <div class="mt-6 pt-4 border-t border-slate-200 flex flex-wrap items-center justify-between gap-3">
+                        <button onclick="downloadScorecardCanvas()" class="px-5 py-3 bg-emerald-600 hover:bg-emerald-700 text-white font-bold rounded-xl shadow-md transition flex items-center gap-2 text-sm">
+                            <i class="fa-solid fa-file-image"></i> Generate JPG/PNG Scorecard Image
+                        </button>
+
+                        <button onclick="sendToWhatsApp()" class="px-5 py-3 bg-green-600 hover:bg-green-700 text-white font-bold rounded-xl shadow-md transition flex items-center gap-2 text-sm">
+                            <i class="fa-brands fa-whatsapp text-lg"></i> Send Official Marks to Sir (8910587106)
+                        </button>
+                    </div>
+                </div>
+
+                <!-- GRAPHICAL ANALYTICS SECTION -->
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                    <div class="bg-white p-6 rounded-2xl shadow-md border border-slate-200">
+                        <h3 class="text-base font-bold text-slate-800 mb-4 flex items-center gap-2">
+                            <i class="fa-solid fa-chart-pie text-blue-600"></i> Performance Summary Chart
+                        </h3>
+                        <div class="h-64 relative flex justify-center items-center">
+                            <canvas id="performancePieChart"></canvas>
+                        </div>
+                    </div>
+
+                    <div class="bg-white p-6 rounded-2xl shadow-md border border-slate-200">
+                        <h3 class="text-base font-bold text-slate-800 mb-4 flex items-center gap-2">
+                            <i class="fa-solid fa-chart-bar text-indigo-600"></i> Topic-wise Performance Breakdown
+                        </h3>
+                        <div class="h-64 relative">
+                            <canvas id="topicBarChart"></canvas>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- WEAK AREAS & SUGGESTIONS BOX -->
+                <div class="bg-amber-50 border border-amber-200 rounded-2xl p-6 shadow-sm">
+                    <h3 class="text-base font-bold text-amber-900 mb-2 flex items-center gap-2">
+                        <i class="fa-solid fa-triangle-exclamation text-amber-600"></i> Weak Areas & Focus Suggestions Analysis
+                    </h3>
+                    <div id="weakAreasContainer" class="text-sm text-amber-800 space-y-2">
+                        <!-- Populated dynamically -->
+                    </div>
+                </div>
+
+                <!-- DETAILED SOLUTIONS & EXPLANATION REPORT -->
+                <div class="bg-white rounded-2xl shadow-md border border-slate-200 p-6">
+                    <h3 class="text-lg font-bold text-slate-800 mb-6 flex items-center gap-2 border-b pb-3">
+                        <i class="fa-solid fa-list-check text-blue-600"></i> Detailed Question Keys & Explanations
+                    </h3>
+                    <div id="solutionsListContainer" class="space-y-6">
+                        <!-- Solution items populated dynamically -->
+                    </div>
+                </div>
+
+            </div>
+        </div>
+
+    </div>
+
+    <!-- HIDDEN CANVAS FOR SCORECARD IMAGE GENERATION -->
+    <canvas id="scorecardCanvas" class="hidden"></canvas>
+
+    <!-- SCRIPT LOGIC -->
+    <script>
+        // GLOBAL STATE VARIABLES
+        let candidateName = "";
+        let timerInterval = null;
+        let timeRemaining = 3600; // 60 minutes
+        let currentQuestionIndex = 0;
+        let randomizedQuestions = [];
+        let candidateAnswers = {}; // { qIndex: selectedOptionIndex }
+        let questionStatuses = {}; // { qIndex: 'not-visited' | 'not-answered' | 'answered' | 'marked' | 'ans-marked' }
+        let proctorWarnings = 0;
+        let currentCaptcha = "";
+
+        // 45 COMPLETE HIGH-QUALITY P-BLOCK QUESTIONS DATA (GROUPS 13 TO 18)
+        const rawQuestionBank = [
+            // 10 STATEMENT BASED QUESTIONS (1 to 10)
+            {
+                id: 1,
+                type: "Statement Based",
+                topicGroup: "Group 13",
+                qText: "<strong>Statement I:</strong> Boron is unable to form BF<sub>6</sub><sup>3-</sup> ion due to non-availability of d-orbitals in its valence shell.<br><strong>Statement II:</strong> The maximum covalency of boron is 4 as it has only four valence orbitals (2s, 2px, 2py, 2pz).",
+                options: [
+                    "Both Statement I and Statement II are correct",
+                    "Both Statement I and Statement II are incorrect",
+                    "Statement I is correct but Statement II is incorrect",
+                    "Statement I is incorrect but Statement II is correct"
+                ],
+                correct: 0,
+                explanation: "Boron belongs to period 2 and has no 2d orbitals. Its maximum covalency is restricted to 4 (using 2s and three 2p orbitals). Thus, it cannot expand its octet to form BF<sub>6</sub><sup>3-</sup>."
+            },
+            {
+                id: 2,
+                type: "Statement Based",
+                topicGroup: "Group 14",
+                qText: "<strong>Statement I:</strong> PbCl<sub>4</sub> is a powerful oxidizing agent and readily decomposes into PbCl<sub>2</sub> and Cl<sub>2</sub>.<br><strong>Statement II:</strong> Pb(II) state is more stable than Pb(IV) state due to the inert pair effect.",
+                options: [
+                    "Both Statement I and Statement II are correct",
+                    "Both Statement I and Statement II are incorrect",
+                    "Statement I is correct but Statement II is incorrect",
+                    "Statement I is incorrect but Statement II is correct"
+                ],
+                correct: 0,
+                explanation: "Due to the strong inert pair effect in heavier group 14 elements, the +2 oxidation state of Lead (Pb) is significantly more stable than the +4 state. Thus, Pb(IV) compounds act as strong oxidizing agents."
+            },
+            {
+                id: 3,
+                type: "Statement Based",
+                topicGroup: "Group 15",
+                qText: "<strong>Statement I:</strong> Nitrogen exhibits a maximum covalency of 4, whereas Phosphorus can expand its covalency to 6.<br><strong>Statement II:</strong> Nitrogen lacks d-orbitals in its valence shell, while Phosphorus possesses vacant 3d-orbitals.",
+                options: [
+                    "Both Statement I and Statement II are correct",
+                    "Both Statement I and Statement II are incorrect",
+                    "Statement I is correct but Statement II is incorrect",
+                    "Statement I is incorrect but Statement II is correct"
+                ],
+                correct: 0,
+                explanation: "Nitrogen is restricted to covalency 4 because it lacks valence d-orbitals. Phosphorus can form PCl<sub>6</sub><sup>-</sup> because of available 3d orbitals."
+            },
+            {
+                id: 4,
+                type: "Statement Based",
+                topicGroup: "Group 16",
+                qText: "<strong>Statement I:</strong> H<sub>2</sub>O has a higher boiling point than H<sub>2</sub>S.<br><strong>Statement II:</strong> Oxygen is highly electronegative and forms strong intermolecular hydrogen bonds, whereas sulfur cannot form effective hydrogen bonding.",
+                options: [
+                    "Both Statement I and Statement II are correct",
+                    "Both Statement I and Statement II are incorrect",
+                    "Statement I is correct but Statement II is incorrect",
+                    "Statement I is incorrect but Statement II is correct"
+                ],
+                correct: 0,
+                explanation: "The high electronegativity and small size of Oxygen allow H<sub>2</sub>O molecules to form extensive hydrogen bonding, giving it an abnormally high boiling point compared to H<sub>2</sub>S."
+            },
+            {
+                id: 5,
+                type: "Statement Based",
+                topicGroup: "Group 17",
+                qText: "<strong>Statement I:</strong> Fluorine exhibits only -1 oxidation state in its compounds (except F<sub>2</sub>).<br><strong>Statement II:</strong> Fluorine is the most electronegative element and lacks d-orbitals to show higher positive oxidation states.",
+                options: [
+                    "Both Statement I and Statement II are correct",
+                    "Both Statement I and Statement II are incorrect",
+                    "Statement I is correct but Statement II is incorrect",
+                    "Statement I is incorrect but Statement II is correct"
+                ],
+                correct: 0,
+                explanation: "Fluorine is the most electronegative element and lacks d-orbitals in its valence shell, hence it cannot expand its octet or show positive oxidation states."
+            },
+            {
+                id: 6,
+                type: "Statement Based",
+                topicGroup: "Group 18",
+                qText: "<strong>Statement I:</strong> Helium and Neon do not form clathrate compounds.<br><strong>Statement II:</strong> The atoms of He and Ne are so small that they easily escape from the cavities of host molecules like quinol.",
+                options: [
+                    "Both Statement I and Statement II are correct",
+                    "Both Statement I and Statement II are incorrect",
+                    "Statement I is correct but Statement II is incorrect",
+                    "Statement I is incorrect but Statement II is correct"
+                ],
+                correct: 0,
+                explanation: "Helium and Neon have very small atomic radii and cannot be trapped in the crystal cage cavities of quinol, thus they do not form clathrates."
+            },
+            {
+                id: 7,
+                type: "Statement Based",
+                topicGroup: "Group 13",
+                qText: "<strong>Statement I:</strong> TlCl<sub>3</sub> is much less stable than TlCl.<br><strong>Statement II:</strong> As we move down group 13, the stability of the +1 oxidation state increases relative to the +3 oxidation state.",
+                options: [
+                    "Both Statement I and Statement II are correct",
+                    "Both Statement I and Statement II are incorrect",
+                    "Statement I is correct but Statement II is incorrect",
+                    "Statement I is incorrect but Statement II is correct"
+                ],
+                correct: 0,
+                explanation: "Inert pair effect causes the valence s-electrons of Thallium to remain paired and unreactive. Hence, Tl(I) is far more stable than Tl(III)."
+            },
+            {
+                id: 8,
+                type: "Statement Based",
+                topicGroup: "Group 15",
+                qText: "<strong>Statement I:</strong> White phosphorus is dense, waxy, and highly reactive, storing under water.<br><strong>Statement II:</strong> White phosphorus exists as discrete P<sub>4</sub> tetrahedral molecules with severe angular ring strain of 60°.",
+                options: [
+                    "Both Statement I and Statement II are correct",
+                    "Both Statement I and Statement II are incorrect",
+                    "Statement I is correct but Statement II is incorrect",
+                    "Statement I is incorrect but Statement II is correct"
+                ],
+                correct: 0,
+                explanation: "The P<sub>4</sub> molecule has PPP bond angles of 60°, introducing strong angular strain, making white phosphorus exceptionally reactive."
+            },
+            {
+                id: 9,
+                type: "Statement Based",
+                topicGroup: "Group 16",
+                qText: "<strong>Statement I:</strong> SF<sub>6</sub> is kinetically extremely inert toward hydrolysis.<br><strong>Statement II:</strong> In SF<sub>6</sub>, Sulfur is sterically protected by six fluoride ions preventing attack by water molecules.",
+                options: [
+                    "Both Statement I and Statement II are correct",
+                    "Both Statement I and Statement II are incorrect",
+                    "Statement I is correct but Statement II is incorrect",
+                    "Statement I is incorrect but Statement II is correct"
+                ],
+                correct: 0,
+                explanation: "Steric hindrance by six surrounding octahedral fluoride ligands shields the central sulfur atom from nucleophilic attack by H<sub>2</sub>O."
+            },
+            {
+                id: 10,
+                type: "Statement Based",
+                topicGroup: "Group 17",
+                qText: "<strong>Statement I:</strong> Chlorine gas reacts with cold, dilute NaOH to give NaCl and NaOCl.<br><strong>Statement II:</strong> Chlorine gas reacts with hot, concentrated NaOH to give NaCl and NaClO<sub>3</sub>.",
+                options: [
+                    "Both Statement I and Statement II are correct",
+                    "Both Statement I and Statement II are incorrect",
+                    "Statement I is correct but Statement II is incorrect",
+                    "Statement I is incorrect but Statement II is correct"
+                ],
+                correct: 0,
+                explanation: "Chlorine undergoes disproportionation: with cold dilute alkali it forms chloride (Cl<sup>-</sup>) and hypochlorite (ClO<sup>-</sup>); with hot conc alkali it forms chloride (Cl<sup>-</sup>) and chlorate (ClO<sub>3</sub><sup>-</sup>)."
+            },
+
+            // 15 ASSERTION & REASON BASED QUESTIONS (11 to 25)
+            {
+                id: 11,
+                type: "Assertion & Reason",
+                topicGroup: "Group 13",
+                qText: "<strong>Assertion (A):</strong> Anhydrous AlCl<sub>3</sub> acts as a strong Lewis acid.<br><strong>Reason (R):</strong> AlCl<sub>3</sub> achieves octet stability by forming a dimeric molecule Al<sub>2</sub>Cl<sub>6</sub> in vapor phase.",
+                options: [
+                    "Both (A) and (R) are true and (R) is the correct explanation of (A)",
+                    "Both (A) and (R) are true but (R) is NOT the correct explanation of (A)",
+                    " (A) is true but (R) is false",
+                    " (A) is false but (R) is true"
+                ],
+                correct: 1,
+                explanation: "AlCl<sub>3</sub> is electron-deficient (6 valence electrons around Al), making it a Lewis acid. It dimerizes to Al<sub>2</sub>Cl<sub>6</sub> via coordinate bonds to complete its octet, but dimerization itself reduces Lewis acidity rather than causing it."
+            },
+            {
+                id: 12,
+                type: "Assertion & Reason",
+                topicGroup: "Group 14",
+                qText: "<strong>Assertion (A):</strong> Carbon exhibits a remarkable tendency for catenation compared to Silicon.<br><strong>Reason (R):</strong> The C-C bond energy (348 kJ/mol) is much higher than the Si-Si bond energy (297 kJ/mol).",
+                options: [
+                    "Both (A) and (R) are true and (R) is the correct explanation of (A)",
+                    "Both (A) and (R) are true but (R) is NOT the correct explanation of (A)",
+                    " (A) is true but (R) is false",
+                    " (A) is false but (R) is true"
+                ],
+                correct: 0,
+                explanation: "Catenation strength depends directly on element-element bond dissociation enthalpy. High C-C bond enthalpy enables long stable carbon chains."
+            },
+            {
+                id: 13,
+                type: "Assertion & Reason",
+                topicGroup: "Group 15",
+                qText: "<strong>Assertion (A):</strong> Bi(V) compounds are strong oxidizing agents.<br><strong>Reason (R):</strong> Inert pair effect makes the +3 oxidation state of Bismuth much more stable than +5.",
+                options: [
+                    "Both (A) and (R) are true and (R) is the correct explanation of (A)",
+                    "Both (A) and (R) are true but (R) is NOT the correct explanation of (A)",
+                    " (A) is true but (R) is false",
+                    " (A) is false but (R) is true"
+                ],
+                correct: 0,
+                explanation: "Due to inert pair effect, Bi(V) readily accepts two electrons to convert into the very stable Bi(III) state, acting as a strong oxidant."
+            },
+            {
+                id: 14,
+                type: "Assertion & Reason",
+                topicGroup: "Group 16",
+                qText: "<strong>Assertion (A):</strong> Oxygen shows an anomalous behavior compared to rest of the group 16 elements.<br><strong>Reason (R):</strong> Oxygen has small atomic size, high electronegativity, high ionization enthalpy, and absence of d-orbitals.",
+                options: [
+                    "Both (A) and (R) are true and (R) is the correct explanation of (A)",
+                    "Both (A) and (R) are true but (R) is NOT the correct explanation of (A)",
+                    " (A) is true but (R) is false",
+                    " (A) is false but (R) is true"
+                ],
+                correct: 0,
+                explanation: "Small size, high electronegativity, and lack of d-orbitals are the exact structural factors causing anomalous properties of oxygen."
+            },
+            {
+                id: 15,
+                type: "Assertion & Reason",
+                topicGroup: "Group 17",
+                qText: "<strong>Assertion (A):</strong> Bond dissociation enthalpy of F<sub>2</sub> is less than that of Cl<sub>2</sub>.<br><strong>Reason (R):</strong> Interelectronic repulsions between non-bonding lone pairs are very large in compact F<sub>2</sub> molecule.",
+                options: [
+                    "Both (A) and (R) are true and (R) is the correct explanation of (A)",
+                    "Both (A) and (R) are true but (R) is NOT the correct explanation of (A)",
+                    " (A) is true but (R) is false",
+                    " (A) is false but (R) is true"
+                ],
+                correct: 0,
+                explanation: "The extremely short F-F bond length causes heavy lone-pair lone-pair electron repulsions, weakening the F-F bond relative to Cl-Cl."
+            },
+            {
+                id: 16,
+                type: "Assertion & Reason",
+                topicGroup: "Group 18",
+                qText: "<strong>Assertion (A):</strong> Xenon forms a wide range of fluorides like XeF<sub>2</sub>, XeF<sub>4</sub>, and XeF<sub>6</sub>.<br><strong>Reason (R):</strong> Xenon has low ionization enthalpy compared to other noble gases and available vacant 5d orbitals.",
+                options: [
+                    "Both (A) and (R) are true and (R) is the correct explanation of (A)",
+                    "Both (A) and (R) are true but (R) is NOT the correct explanation of (A)",
+                    " (A) is true but (R) is false",
+                    " (A) is false but (R) is true"
+                ],
+                correct: 0,
+                explanation: "Xenon's relatively lower first ionization energy allows highly electronegative Fluorine to excite 5p electrons into vacant 5d orbitals."
+            },
+            {
+                id: 17,
+                type: "Assertion & Reason",
+                topicGroup: "Group 13",
+                qText: "<strong>Assertion (A):</strong> BF<sub>3</sub> is a weaker Lewis acid than BCl<sub>3</sub>.<br><strong>Reason (R):</strong> p&pi;-p&pi; back bonding is much stronger in BF<sub>3</sub> due to favorable size matching between 2p of B and 2p of F.",
+                options: [
+                    "Both (A) and (R) are true and (R) is the correct explanation of (A)",
+                    "Both (A) and (R) are true but (R) is NOT the correct explanation of (A)",
+                    " (A) is true but (R) is false",
+                    " (A) is false but (R) is true"
+                ],
+                correct: 0,
+                explanation: "Effective 2p(B)-2p(F) back-bonding partially satisfies boron's electron deficiency in BF<sub>3</sub>, making it less eager to accept external electron pairs compared to BCl<sub>3</sub>."
+            },
+            {
+                id: 18,
+                type: "Assertion & Reason",
+                topicGroup: "Group 14",
+                qText: "<strong>Assertion (A):</strong> [SiF<sub>6</sub>]<sup>2-</sup> is well known, but [SiCl<sub>6</sub>]<sup>2-</sup> is not formed.<br><strong>Reason (R):</strong> Six large chloride ions cannot be accommodated around smaller Si<sup>4+</sup> due to steric hindrance and weak Si-Cl interaction.",
+                options: [
+                    "Both (A) and (R) are true and (R) is the correct explanation of (A)",
+                    "Both (A) and (R) are true but (R) is NOT the correct explanation of (A)",
+                    " (A) is true but (R) is false",
+                    " (A) is false but (R) is true"
+                ],
+                correct: 0,
+                explanation: "Steric overcrowding by 6 large Cl<sup>-</sup> ligands and weak overlap prevents the existence of [SiCl<sub>6</sub>]<sup>2-</sup>."
+            },
+            {
+                id: 19,
+                type: "Assertion & Reason",
+                topicGroup: "Group 15",
+                qText: "<strong>Assertion (A):</strong> Nitric acid turns yellow on long standing in glass bottles.<br><strong>Reason (R):</strong> HNO<sub>3</sub> undergoes slow thermal decomposition to liberate reddish-brown NO<sub>2</sub> gas which dissolves in the acid.",
+                options: [
+                    "Both (A) and (R) are true and (R) is the correct explanation of (A)",
+                    "Both (A) and (R) are true but (R) is NOT the correct explanation of (A)",
+                    " (A) is true but (R) is false",
+                    " (A) is false but (R) is true"
+                ],
+                correct: 0,
+                explanation: "4HNO<sub>3</sub> &rarr; 4NO<sub>2</sub> + 2H<sub>2</sub>O + O<sub>2</sub>. Dissolved nitrogen dioxide imparts a pale yellow color to pure concentrated nitric acid."
+            },
+            {
+                id: 20,
+                type: "Assertion & Reason",
+                topicGroup: "Group 16",
+                qText: "<strong>Assertion (A):</strong> Ozone (O<sub>3</sub>) acts as a powerful oxidizing agent.<br><strong>Reason (R):</strong> Ozone readily decomposes to produce atomic (nascent) oxygen: O<sub>3</sub> &rarr; O<sub>2</sub> + [O].",
+                options: [
+                    "Both (A) and (R) are true and (R) is the correct explanation of (A)",
+                    "Both (A) and (R) are true but (R) is NOT the correct explanation of (A)",
+                    " (A) is true but (R) is false",
+                    " (A) is false but (R) is true"
+                ],
+                correct: 0,
+                explanation: "The liberation of highly reactive nascent oxygen [O] upon thermal decomposition makes ozone a potent oxidizing agent."
+            },
+            {
+                id: 21,
+                type: "Assertion & Reason",
+                topicGroup: "Group 17",
+                qText: "<strong>Assertion (A):</strong> HI is a stronger acid than HF.<br><strong>Reason (R):</strong> H-I bond dissociation enthalpy is significantly lower than H-F bond dissociation enthalpy.",
+                options: [
+                    "Both (A) and (R) are true and (R) is the correct explanation of (A)",
+                    "Both (A) and (R) are true but (R) is NOT the correct explanation of (A)",
+                    " (A) is true but (R) is false",
+                    " (A) is false but (R) is true"
+                ],
+                correct: 0,
+                explanation: "Larger size of iodine results in a longer, weaker H-I bond (299 kJ/mol vs 565 kJ/mol for H-F), releasing H<sup>+</sup> much more easily in water."
+            },
+            {
+                id: 22,
+                type: "Assertion & Reason",
+                topicGroup: "Group 18",
+                qText: "<strong>Assertion (A):</strong> XeF<sub>2</sub> has a linear shape despite having 5 electron pairs around central Xenon.<br><strong>Reason (R):</strong> According to VSEPR theory, three lone pairs occupy equatorial positions of a trigonal bipyramidal arrangement to minimize repulsion.",
+                options: [
+                    "Both (A) and (R) are true and (R) is the correct explanation of (A)",
+                    "Both (A) and (R) are true but (R) is NOT the correct explanation of (A)",
+                    " (A) is true but (R) is false",
+                    " (A) is false but (R) is true"
+                ],
+                correct: 0,
+                explanation: "XeF<sub>2</sub> has 2 bond pairs and 3 lone pairs (sp<sup>3</sup>d hybridization). Equatorial lone pairs at 120° minimize lone-pair repulsions, leaving fluorine atoms at axial positions (linear geometry)."
+            },
+            {
+                id: 23,
+                type: "Assertion & Reason",
+                topicGroup: "Group 13",
+                qText: "<strong>Assertion (A):</strong> Borazine (B<sub>3</sub>N<sub>3</sub>H<sub>6</sub>) is called 'inorganic benzene'.<br><strong>Reason (R):</strong> Borazine has a cyclic structure with alternating B and N atoms and is isoelectronic with benzene.",
+                options: [
+                    "Both (A) and (R) are true and (R) is the correct explanation of (A)",
+                    "Both (A) and (R) are true but (R) is NOT the correct explanation of (A)",
+                    " (A) is true but (R) is false",
+                    " (A) is false but (R) is true"
+                ],
+                correct: 0,
+                explanation: "Borazine B<sub>3</sub>N<sub>3</sub>H<sub>6</sub> is ring-structured, planar, isoelectronic and isosteric with C<sub>6</sub>H<sub>6</sub>."
+            },
+            {
+                id: 24,
+                type: "Assertion & Reason",
+                topicGroup: "Group 14",
+                qText: "<strong>Assertion (A):</strong> CO is poisonous in nature.<br><strong>Reason (R):</strong> Carbon monoxide forms a highly stable complex with hemoglobin, which is about 300 times more stable than the oxygen-hemoglobin complex.",
+                options: [
+                    "Both (A) and (R) are true and (R) is the correct explanation of (A)",
+                    "Both (A) and (R) are true but (R) is NOT the correct explanation of (A)",
+                    " (A) is true but (R) is false",
+                    " (A) is false but (R) is true"
+                ],
+                correct: 0,
+                explanation: "Carboxyhemoglobin formation blocks blood oxygen transport, leading to cellular oxygen deprivation and toxicity."
+            },
+            {
+                id: 25,
+                type: "Assertion & Reason",
+                topicGroup: "Group 15",
+                qText: "<strong>Assertion (A):</strong> R<sub>3</sub>P=O exists but R<sub>3</sub>N=O does not exist (where R = alkyl group).<br><strong>Reason (R):</strong> Nitrogen cannot expand its covalency beyond 4 due to non-availability of d-orbitals.",
+                options: [
+                    "Both (A) and (R) are true and (R) is the correct explanation of (A)",
+                    "Both (A) and (R) are true but (R) is NOT the correct explanation of (A)",
+                    " (A) is true but (R) is false",
+                    " (A) is false but (R) is true"
+                ],
+                correct: 0,
+                explanation: "Nitrogen cannot form d&pi;-p&pi; bonds because it lacks d-orbitals, preventing five-covalent oxide structures like R<sub>3</sub>N=O."
+            },
+
+            // 5 CASE STUDY BASED QUESTIONS (26 to 30)
+            {
+                id: 26,
+                type: "Case Study",
+                topicGroup: "Group 15",
+                qText: "<strong>Passage:</strong> The Group 15 hydrides (EH<sub>3</sub> where E = N, P, As, Sb, Bi) exhibit clear periodic trends in bond angle, thermal stability, basic strength, and reducing character. As we move down the group from NH<sub>3</sub> to BiH<sub>3</sub>, the atomic size of the central atom increases and its electronegativity decreases.<br><br><strong>Question:</strong> Which of the following Group 15 hydrides is the strongest reducing agent and least thermally stable?",
+                options: [
+                    "NH<sub>3</sub>",
+                    "PH<sub>3</sub>",
+                    "SbH<sub>3</sub>",
+                    "BiH<sub>3</sub>"
+                ],
+                correct: 3,
+                explanation: "Down the group, E-H bond length increases and bond dissociation enthalpy drops. BiH<sub>3</sub> has the weakest bond, making it the least stable thermally and strongest reducing agent."
+            },
+            {
+                id: 27,
+                type: "Case Study",
+                topicGroup: "Group 16",
+                qText: "<strong>Passage:</strong> Oxoacids of Sulfur play a crucial role in industrial chemistry. Sulfur forms several oxoacids such as H<sub>2</sub>SO<sub>3</sub>, H<sub>2</sub>SO<sub>4</sub>, H<sub>2</sub>S<sub>2</sub>O<sub>3</sub>, H<sub>2</sub>S<sub>2</sub>O<sub>7</sub> (Oleum), and H<sub>2</sub>S<sub>2</sub>O<sub>8</sub> (Peroxodisulfuric acid / Marshall's acid).<br><br><strong>Question:</strong> What is the oxidation state of Sulfur in Marshall's acid (H<sub>2</sub>S<sub>2</sub>O<sub>8</sub>)?",
+                options: [
+                    "+8",
+                    "+6",
+                    "+7",
+                    "+4"
+                ],
+                correct: 1,
+                explanation: "H<sub>2</sub>S<sub>2</sub>O<sub>8</sub> contains one peroxide linkage (-O-O-). Structure: HO-SO<sub>2</sub>-O-O-SO<sub>2</sub>-OH. Oxidation state of sulfur is +6."
+            },
+            {
+                id: 28,
+                type: "Case Study",
+                topicGroup: "Group 17",
+                qText: "<strong>Passage:</strong> Halogens combine among themselves to form interhalogen compounds of types XX', XX'<sub>3</sub>, XX'<sub>5</sub>, and XX'<sub>7</sub> where X is larger halogen and X' is smaller halogen. Interhalogens are generally more reactive than pure halogens (except F<sub>2</sub>).<br><br><strong>Question:</strong> What is the hybridization and geometric shape of IF<sub>7</sub> molecule?",
+                options: [
+                    "sp<sup>3</sup>d<sup>3</sup>, Pentagonal bipyramidal",
+                    "sp<sup>3</sup>d<sup>2</sup>, Octahedral",
+                    "sp<sup>3</sup>d, Trigonal bipyramidal",
+                    "sp<sup>3</sup>d<sup>3</sup>, Distorted Octahedral"
+                ],
+                correct: 0,
+                explanation: "IF<sub>7</sub> has 7 bond pairs around Iodine. Hybridization is sp<sup>3</sup>d<sup>3</sup> with a Pentagonal Bipyramidal shape."
+            },
+            {
+                id: 29,
+                type: "Case Study",
+                topicGroup: "Group 18",
+                qText: "<strong>Passage:</strong> Neil Bartlett in 1962 prepared the first noble gas compound, Xe<sup>+</sup>[PtF<sub>6</sub>]<sup>-</sup>, after observing that O<sub>2</sub> reacts with PtF<sub>6</sub> to give O<sub>2</sub><sup>+</sup>[PtF<sub>6</sub>]<sup>-</sup> because Xenon and O<sub>2</sub> have nearly identical first ionization energies (~1170 kJ/mol).<br><br><strong>Question:</strong> Which product is formed when XeF<sub>6</sub> undergoes complete hydrolysis?",
+                options: [
+                    "XeO<sub>3</sub> + HF",
+                    "XeOF<sub>4</sub> + HF",
+                    "XeO<sub>2</sub>F<sub>2</sub> + HF",
+                    "Xe + O<sub>2</sub> + HF"
+                ],
+                correct: 0,
+                explanation: "XeF<sub>6</sub> + 3H<sub>2</sub>O &rarr; XeO<sub>3</sub> + 6HF. Complete hydrolysis yields explosive Xenon trioxide (XeO<sub>3</sub>)."
+            },
+            {
+                id: 30,
+                type: "Case Study",
+                topicGroup: "Group 13",
+                qText: "<strong>Passage:</strong> Diborane (B<sub>2</sub>H<sub>6</sub>) is an electron-deficient hydride of boron. It is widely used as a reducing agent in organic synthesis and exhibits unique bridging hydrogen bonds.<br><br><strong>Question:</strong> How many 3-center-2-electron (3c-2e) banana bonds and 2-center-2-electron (2c-2e) terminal bonds are present in B<sub>2</sub>H<sub>6</sub>?",
+                options: [
+                    "Two 3c-2e bonds and Four 2c-2e bonds",
+                    "Four 3c-2e bonds and Two 2c-2e bonds",
+                    "Two 3c-2e bonds and Two 2c-2e bonds",
+                    "Six 2c-2e bonds and Zero 3c-2e bonds"
+                ],
+                correct: 0,
+                explanation: "B<sub>2</sub>H<sub>6</sub> contains 4 terminal B-H bonds (2c-2e) and 2 bridging B-H-B bonds (3c-2e banana bonds)."
+            },
+
+            // 10 NUMERICAL & CRITICAL THINKING QUESTIONS (31 to 40)
+            {
+                id: 31,
+                type: "Numerical / Critical",
+                topicGroup: "Group 15",
+                qText: "Calculate the total number of P-O-P bonds present in Pyrophosphoric acid (H<sub>4</sub>P<sub>2</sub>O<sub>7</sub>) and Phosphorus pentoxide (P<sub>4</sub>O<sub>10</sub>) respectively.",
+                options: [
+                    "1 and 6",
+                    "2 and 4",
+                    "1 and 4",
+                    "0 and 6"
+                ],
+                correct: 0,
+                explanation: "H<sub>4</sub>P<sub>2</sub>O<sub>7</sub> (HO)<sub>2</sub>OP-O-PO(OH)<sub>2</sub> has 1 P-O-P bond. P<sub>4</sub>O<sub>10</sub> cage structure has 6 P-O-P bridging oxygen bonds."
+            },
+            {
+                id: 32,
+                type: "Numerical / Critical",
+                topicGroup: "Group 18",
+                qText: "Find the total number of lone pairs of electrons on central Xenon atom in XeF<sub>2</sub>, XeF<sub>4</sub>, and XeF<sub>6</sub> combined (Sum = lone pair XeF<sub>2</sub> + XeF<sub>4</sub> + XeF<sub>6</sub>).",
+                options: [
+                    "6",
+                    "5",
+                    "7",
+                    "4"
+                ],
+                correct: 0,
+                explanation: "XeF<sub>2</sub> has 3 lone pairs, XeF<sub>4</sub> has 2 lone pairs, XeF<sub>6</sub> has 1 lone pair. Sum = 3 + 2 + 1 = 6."
+            },
+            {
+                id: 33,
+                type: "Numerical / Critical",
+                topicGroup: "Group 14",
+                qText: "In Silicates, if 3 oxygen atoms per SiO<sub>4</sub><sup>4-</sup> tetrahedron are shared, what is the empirical formula of the resulting silicate framework?",
+                options: [
+                    "(Si<sub>2</sub>O<sub>5</sub><sup>2-</sup>)<sub>n</sub> (Amphibole/Sheet silicate)",
+                    "SiO<sub>3</sub><sup>2-</sup> (Chain silicate)",
+                    "Si<sub>2</sub>O<sub>7</sub><sup>6-</sup> (Pyrosilicate)",
+                    "SiO<sub>2</sub> (3D silicate)"
+                ],
+                correct: 0,
+                explanation: "Sharing 3 corner oxygen atoms per tetrahedron gives 2-dimensional sheet silicates with empirical formula (Si<sub>2</sub>O<sub>5</sub><sup>2-</sup>)<sub>n</sub>."
+            },
+            {
+                id: 34,
+                type: "Numerical / Critical",
+                topicGroup: "Group 16",
+                qText: "Determine the oxidation state of Nitrogen in N<sub>2</sub>O<sub>5</sub> and Phosphorus in Hypophosphorous acid (H<sub>3</sub>PO<sub>2</sub>).",
+                options: [
+                    "+5 and +1",
+                    "+5 and +3",
+                    "+4 and +1",
+                    "+3 and +1"
+                ],
+                correct: 0,
+                explanation: "In N<sub>2</sub>O<sub>5</sub>, N is in +5 oxidation state. In H<sub>3</sub>PO<sub>2</sub> (monobasic acid), 1 + 3 + P + 2(-2) = 0 &rArr; P = +1."
+            },
+            {
+                id: 35,
+                type: "Numerical / Critical",
+                topicGroup: "Group 13",
+                qText: "What is the formal charge on the central Oxygen atom in the Hydronium ion (H<sub>3</sub>O<sup>+</sup>)?",
+                options: [
+                    "+1",
+                    "0",
+                    "-1",
+                    "+2"
+                ],
+                correct: 0,
+                explanation: "Formal charge = Valence electrons - Nonbonding electrons - 1/2(Bonding electrons) = 6 - 2 - 1/2(6) = +1."
+            },
+            {
+                id: 36,
+                type: "Numerical / Critical",
+                topicGroup: "Group 17",
+                qText: "How many S-S bonds are present in Tetrathionate ion (S<sub>4</sub>O<sub>6</sub><sup>2-</sup>)?",
+                options: [
+                    "3",
+                    "2",
+                    "4",
+                    "1"
+                ],
+                correct: 0,
+                explanation: "Structure of S<sub>4</sub>O<sub>6</sub><sup>2-</sup>: <sup>-</sup>O<sub>3</sub>S-S-S-SO<sub>3</sub><sup>-</sup>. There are 3 S-S single bonds linkage."
+            },
+            {
+                id: 37,
+                type: "Numerical / Critical",
+                topicGroup: "Group 15",
+                qText: "How many active basic P-OH hydroxyl groups are present in Orthophosphoric acid (H<sub>3</sub>PO<sub>4</sub>), Phosphronic acid (H<sub>3</sub>PO<sub>3</sub>), and Phosphinic acid (H<sub>3</sub>PO<sub>2</sub>) respectively?",
+                options: [
+                    "3, 2, 1",
+                    "3, 3, 3",
+                    "3, 1, 0",
+                    "2, 2, 1"
+                ],
+                correct: 0,
+                explanation: "H<sub>3</sub>PO<sub>4</sub> has 3 P-OH groups (tribasic). H<sub>3</sub>PO<sub>3</sub> has 2 P-OH groups (dibasic). H<sub>3</sub>PO<sub>2</sub> has 1 P-OH group (monobasic)."
+            },
+            {
+                id: 38,
+                type: "Numerical / Critical",
+                topicGroup: "Group 16",
+                qText: "Calculate the percentage of p-character in the hybrid orbitals of central atom in ClF<sub>3</sub> (T-shaped geometry).",
+                options: [
+                    "60% (sp<sup>3</sup>d)",
+                    "75% (sp<sup>3</sup>)",
+                    "66.6% (sp<sup>2</sup>)",
+                    "50% (sp)"
+                ],
+                correct: 0,
+                explanation: "ClF<sub>3</sub> has 3 bond pairs and 2 lone pairs = 5 steric number &rArr; sp<sup>3</sup>d hybridization. p-character = 3/5 = 60%."
+            },
+            {
+                id: 39,
+                type: "Numerical / Critical",
+                topicGroup: "Group 14",
+                qText: "How many double bonds (&pi;-bonds) are present in C<sub>3</sub>O<sub>2</sub> (Carbon suboxide) molecule?",
+                options: [
+                    "4",
+                    "2",
+                    "3",
+                    "1"
+                ],
+                correct: 0,
+                explanation: "Carbon suboxide has the linear structure O=C=C=C=O. It contains 4 double bonds (4 &pi;-bonds)."
+            },
+            {
+                id: 40,
+                type: "Numerical / Critical",
+                topicGroup: "Group 18",
+                qText: "What is the volume of O<sub>2</sub> liberated at STP when 0.1 mole of XeF<sub>2</sub> undergoes complete reaction with water?",
+                options: [
+                    "1.12 L",
+                    "2.24 L",
+                    "0.56 L",
+                    "4.48 L"
+                ],
+                correct: 0,
+                explanation: "2XeF<sub>2</sub> + 2H<sub>2</sub>O &rarr; 2Xe + 4HF + O<sub>2</sub>. 2 moles XeF<sub>2</sub> yield 1 mole O<sub>2</sub>. 0.1 mol XeF<sub>2</sub> yields 0.05 mol O<sub>2</sub> = 0.05 &times; 22.4 L = 1.12 L."
+            },
+
+            // 5 DIAGRAM / STRUCTURE BASED QUESTIONS (41 to 45)
+            {
+                id: 41,
+                type: "Diagram Based",
+                topicGroup: "Group 13",
+                qText: "Identify the molecule whose structural bonding representation is shown below with 3-center-2-electron banana bonds:",
+                svgType: "diborane",
+                options: [
+                    "Diborane (B<sub>2</sub>H<sub>6</sub>)",
+                    "Borazine (B<sub>3</sub>N<sub>3</sub>H<sub>6</sub>)",
+                    "Aluminium chloride dimer (Al<sub>2</sub>Cl<sub>6</sub>)",
+                    "Boric acid (H<sub>3</sub>BO<sub>3</sub>)"
+                ],
+                correct: 0,
+                explanation: "The structure shows two central boron atoms connected by two bridging hydrogen atoms forming 3c-2e banana bonds."
+            },
+            {
+                id: 42,
+                type: "Diagram Based",
+                topicGroup: "Group 15",
+                qText: "Refer to the structural representation shown below. Identify the phosphorus allotrope characterized by tetrahedral discrete unit strain:",
+                svgType: "whiteP4",
+                options: [
+                    "White Phosphorus (P<sub>4</sub>)",
+                    "Red Phosphorus",
+                    "Black Phosphorus",
+                    "Violet Phosphorus"
+                ],
+                correct: 0,
+                explanation: "The SVG shows a discrete P<sub>4</sub> tetrahedron with 60° bond angles corresponding to reactive White Phosphorus."
+            },
+            {
+                id: 43,
+                type: "Diagram Based",
+                topicGroup: "Group 18",
+                qText: "Identify the square planar noble gas fluoride molecule represented with two axial lone pairs in the diagram below:",
+                svgType: "xeF4",
+                options: [
+                    "Xenon tetrafluoride (XeF<sub>4</sub>)",
+                    "Xenon difluoride (XeF<sub>2</sub>)",
+                    "Xenon hexafluoride (XeF<sub>6</sub>)",
+                    "Xenon oxytetrafluoride (XeOF<sub>4</sub>)"
+                ],
+                correct: 0,
+                explanation: "The square planar geometry with 4 Xe-F bonds at 90° and 2 axial lone pairs belongs to XeF<sub>4</sub> (sp<sup>3</sup>d<sup>2</sup>)."
+            },
+            {
+                id: 44,
+                type: "Diagram Based",
+                topicGroup: "Group 13",
+                qText: "Identify the planar aromatic inorganic heterocyclic compound shown below containing alternating boron and nitrogen atoms:",
+                svgType: "borazine",
+                options: [
+                    "Borazine (B<sub>3</sub>N<sub>3</sub>H<sub>6</sub>)",
+                    "Benzene (C<sub>6</sub>H<sub>6</sub>)",
+                    "Cyanuric chloride",
+                    "Melamine"
+                ],
+                correct: 0,
+                explanation: "The structure depicts Borazine (B<sub>3</sub>N<sub>3</sub>H<sub>6</sub>), also known as inorganic benzene."
+            },
+            {
+                id: 45,
+                type: "Diagram Based",
+                topicGroup: "Group 15",
+                qText: "Identify the planar oxoacid structure shown below featuring resonance stabilization between single and double nitrogen-oxygen bonds:",
+                svgType: "hno3",
+                options: [
+                    "Nitric Acid (HNO<sub>3</sub>)",
+                    "Nitrous Acid (HNO<sub>2</sub>)",
+                    "Nitrosyl chloride (NOCl)",
+                    "Dinitrogen trioxide (N<sub>2</sub>O<sub>3</sub>)"
+                ],
+                correct: 0,
+                explanation: "The diagram displays planar Nitric acid (HNO<sub>3</sub>) with one OH group, one double bonded O, and one coordinate bonded O."
+            }
+        ];
+
+        // INITIALIZATION
+        window.addEventListener('DOMContentLoaded', () => {
+            generateCaptcha();
+            setupProctoring();
+            
+            // Set default watermark
+            const today = new Date();
+            const dateStr = today.getDate().toString().padStart(2,'0') + "/" + (today.getMonth()+1).toString().padStart(2,'0') + "/" + today.getFullYear();
+            document.getElementById('reportDateStamp').innerText = "Date: " + dateStr;
+        });
+
+        // CAPTCHA GENERATION
+        function generateCaptcha() {
+            const chars = "23456789ABCDEFGHJKLMNPQRSTUVWXYZ";
+            let code = "";
+            for(let i=0; i<5; i++){
+                code += chars.charAt(Math.floor(Math.random() * chars.length));
+            }
+            currentCaptcha = code;
+            document.getElementById('captchaDisplay').innerText = code;
+        }
+
+        // AUTHENTICATION & LOGIN HANDLER
+        function handleAuthentication(event) {
+            event.preventDefault();
+            const nameInput = document.getElementById('candidateNameInput').value.trim();
+            const passInput = document.getElementById('examPasswordInput').value.trim();
+            const captchaVal = document.getElementById('captchaInput').value.trim().toUpperCase();
+
+            if(!nameInput) {
+                alert("Please enter candidate name.");
+                return;
+            }
+
+            // Verify Password matching today's date in DDMMYYYY format
+            const today = new Date();
+            const dd = String(today.getDate()).padStart(2, '0');
+            const mm = String(today.getMonth() + 1).padStart(2, '0');
+            const yyyy = today.getFullYear();
+            const expectedPass = `${dd}${mm}${yyyy}`;
+
+            if (passInput !== expectedPass) {
+                alert(`Invalid Password! The password must match today's exam date in DDMMYYYY format (e.g. ${expectedPass}).`);
+                return;
+            }
+
+            if (captchaVal !== currentCaptcha) {
+                alert("Captcha code verification failed! Please check and try again.");
+                generateCaptcha();
+                return;
+            }
+
+            candidateName = nameInput;
+            document.getElementById('cbtCandidateName').innerText = candidateName;
+            document.getElementById('reportCandidateName').innerText = candidateName;
+            document.getElementById('watermarkText').innerHTML = `SOUMENDRA SIR'S BIOLOGY CLASSES<br>8910587106 - ${candidateName.toUpperCase()}`;
+
+            // Shuffle questions sequence for each candidate
+            randomizedQuestions = [...rawQuestionBank].sort(() => Math.random() - 0.5);
+
+            // Initialize Question statuses
+            randomizedQuestions.forEach((q, idx) => {
+                questionStatuses[idx] = 'not-visited';
+            });
+
+            // Enter CBT Screen
+            document.getElementById('loginScreen').classList.add('hidden');
+            document.getElementById('cbtScreen').classList.remove('hidden');
+
+            // Request Fullscreen
+            requestFullScreen();
+
+            // Initialize Palette & Render First Question
+            renderPaletteDots();
+            loadQuestion(0);
+            startTimer();
+        }
+
+        // PROCTORING & SECURITY ENFORCEMENT
+        function setupProctoring() {
+            // Block Copy, Paste, Cut, Right Click, F12
+            document.addEventListener('copy', (e) => e.preventDefault());
+            document.addEventListener('paste', (e) => e.preventDefault());
+            document.addEventListener('cut', (e) => e.preventDefault());
+            document.addEventListener('contextmenu', (e) => e.preventDefault());
+
+            document.addEventListener('keydown', (e) => {
+                if (e.keyCode === 123 || 
+                   (e.ctrlKey && e.shiftKey && (e.keyCode === 73 || e.keyCode === 74)) || 
+                   (e.ctrlKey && e.keyCode === 85)) {
+                    e.preventDefault();
+                    return false;
+                }
+            });
+
+            // Tab switching & Visibility change detection
+            document.addEventListener('visibilitychange', () => {
+                if (document.hidden && !document.getElementById('cbtScreen').classList.contains('hidden')) {
+                    proctorWarnings++;
+                    if (proctorWarnings >= 3) {
+                        alert("PROCTORING SYSTEM ALERT: Maximum tab-switching violations (3/3) exceeded! Your examination is being automatically submitted.");
+                        submitFinalExam();
+                    } else {
+                        alert(`PROCTOR WARNING (${proctorWarnings}/3): You switched tabs or minimized the test window! Do not leave the exam window or your test will be terminated.`);
+                    }
+                }
+            });
+        }
+
+        function requestFullScreen() {
+            const el = document.documentElement;
+            if (el.requestFullscreen) el.requestFullscreen().catch(()=>{});
+            else if (el.webkitRequestFullscreen) el.webkitRequestFullscreen().catch(()=>{});
+        }
+
+        // TIMER COUNTDOWN
+        function startTimer() {
+            timerInterval = setInterval(() => {
+                if (timeRemaining <= 0) {
+                    clearInterval(timerInterval);
+                    alert("Time is up! Your exam is being automatically submitted.");
+                    submitFinalExam();
+                    return;
+                }
+                timeRemaining--;
+                const mins = Math.floor(timeRemaining / 60);
+                const secs = timeRemaining % 60;
+                document.getElementById('timerDisplay').innerText = 
+                    `${String(mins).padStart(2, '0')}:${String(secs).padStart(2, '0')}`;
+            }, 1000);
+        }
+
+        // RENDER PALETTE CIRCULAR DOTS
+        function renderPaletteDots() {
+            const grid = document.getElementById('statusDotGrid');
+            grid.innerHTML = '';
+
+            let answeredCount = 0;
+
+            randomizedQuestions.forEach((q, idx) => {
+                const status = questionStatuses[idx] || 'not-visited';
+                if (status === 'answered' || status === 'ans-marked') answeredCount++;
+
+                const dot = document.createElement('div');
+                dot.className = `dot-status dot-${status} ${idx === currentQuestionIndex ? 'dot-active' : ''}`;
+                dot.innerText = idx + 1;
+                dot.onclick = () => loadQuestion(idx);
+                grid.appendChild(dot);
+            });
+
+            document.getElementById('attemptCountBadge').innerText = `${answeredCount}/45 Ans`;
+        }
+
+        // LOAD QUESTION BY INDEX
+        function loadQuestion(index) {
+            currentQuestionIndex = index;
+            const q = randomizedQuestions[index];
+
+            // Mark visited if previously not visited
+            if (questionStatuses[index] === 'not-visited') {
+                questionStatuses[index] = 'not-answered';
+            }
+
+            document.getElementById('currentQNum').innerText = index + 1;
+            document.getElementById('qTypeBadge').innerText = q.type;
+
+            // Render Text
+            document.getElementById('questionTextContainer').innerHTML = q.qText;
+
+            // Render Diagram SVG if present
+            const diagContainer = document.getElementById('diagramContainer');
+            if (q.svgType) {
+                diagContainer.classList.remove('hidden');
+                diagContainer.innerHTML = getSVGDiagram(q.svgType);
+            } else {
+                diagContainer.classList.add('hidden');
+                diagContainer.innerHTML = '';
+            }
+
+            // Render Options
+            const optionsContainer = document.getElementById('optionsContainer');
+            optionsContainer.innerHTML = '';
+
+            q.options.forEach((optText, oIdx) => {
+                const isChecked = candidateAnswers[index] === oIdx;
+                const optDiv = document.createElement('label');
+                optDiv.className = `flex items-start gap-3 p-3.5 rounded-xl border cursor-pointer transition ${
+                    isChecked ? 'bg-blue-50 border-blue-600 ring-1 ring-blue-600' : 'bg-slate-50 border-slate-200 hover:bg-slate-100'
+                }`;
+
+                optDiv.innerHTML = `
+                    <input type="radio" name="q_option" value="${oIdx}" ${isChecked ? 'checked' : ''} 
+                        onclick="selectOption(${index}, ${oIdx})" class="mt-1 w-4 h-4 text-blue-600 focus:ring-blue-500">
+                    <span class="text-sm md:text-base font-medium text-slate-800 leading-snug">
+                        <strong class="text-slate-500 mr-1">(${String.fromCharCode(65 + oIdx)})</strong> ${optText}
+                    </span>
+                `;
+                optionsContainer.appendChild(optDiv);
+            });
+
+            renderPaletteDots();
+
+            // Re-render MathJax
+            if (window.MathJax) {
+                MathJax.typesetPromise();
+            }
+        }
+
+        // OPTION SELECTION HANDLER
+        function selectOption(qIndex, optIndex) {
+            candidateAnswers[qIndex] = optIndex;
+            if (questionStatuses[qIndex] === 'marked') {
+                questionStatuses[qIndex] = 'ans-marked';
+            } else {
+                questionStatuses[qIndex] = 'answered';
+            }
+            renderPaletteDots();
+        }
+
+        // NAVIGATION BUTTONS
+        function saveAndNext() {
+            if (candidateAnswers[currentQuestionIndex] !== undefined && questionStatuses[currentQuestionIndex] !== 'ans-marked') {
+                questionStatuses[currentQuestionIndex] = 'answered';
+            }
+            if (currentQuestionIndex < randomizedQuestions.length - 1) {
+                loadQuestion(currentQuestionIndex + 1);
+            } else {
+                renderPaletteDots();
+            }
+        }
+
+        function markForReviewAndNext() {
+            if (candidateAnswers[currentQuestionIndex] !== undefined) {
+                questionStatuses[currentQuestionIndex] = 'ans-marked';
+            } else {
+                questionStatuses[currentQuestionIndex] = 'marked';
+            }
+            if (currentQuestionIndex < randomizedQuestions.length - 1) {
+                loadQuestion(currentQuestionIndex + 1);
+            } else {
+                renderPaletteDots();
+            }
+        }
+
+        function clearResponse() {
+            delete candidateAnswers[currentQuestionIndex];
+            questionStatuses[currentQuestionIndex] = 'not-answered';
+            loadQuestion(currentQuestionIndex);
+        }
+
+        function navigateQuestion(direction) {
+            const target = currentQuestionIndex + direction;
+            if (target >= 0 && target < randomizedQuestions.length) {
+                loadQuestion(target);
+            }
+        }
+
+        // SUBMIT EXAM & GENERATE REPORT
+        function confirmSubmitExam() {
+            if (confirm("Are you sure you want to submit your final chemistry exam paper?")) {
+                submitFinalExam();
+            }
+        }
+
+        function submitFinalExam() {
+            clearInterval(timerInterval);
+
+            if (document.exitFullscreen) document.exitFullscreen().catch(()=>{});
+
+            document.getElementById('cbtScreen').classList.add('hidden');
+            document.getElementById('reportScreen').classList.remove('hidden');
+
+            calculateResults();
+        }
+
+        // CALCULATE SCORES & TOPIC BREAKDOWN
+        function calculateResults() {
+            let correct = 0;
+            let incorrect = 0;
+            let unattempted = 0;
+
+            const topicStats = {
+                "Group 13": { correct: 0, total: 0 },
+                "Group 14": { correct: 0, total: 0 },
+                "Group 15": { correct: 0, total: 0 },
+                "Group 16": { correct: 0, total: 0 },
+                "Group 17": { correct: 0, total: 0 },
+                "Group 18": { correct: 0, total: 0 }
+            };
+
+            randomizedQuestions.forEach((q, idx) => {
+                const grp = q.topicGroup || "Group 15";
+                if (!topicStats[grp]) topicStats[grp] = { correct: 0, total: 0 };
+                topicStats[grp].total++;
+
+                const userAns = candidateAnswers[idx];
+                if (userAns === undefined) {
+                    unattempted++;
+                } else if (userAns === q.correct) {
+                    correct++;
+                    topicStats[grp].correct++;
+                } else {
+                    incorrect++;
+                }
+            });
+
+            const score = (correct * 4) - (incorrect * 1);
+            const percentage = ((score / 180) * 100).toFixed(1);
+            const attemptedTotal = correct + incorrect;
+            const accuracy = attemptedTotal > 0 ? ((correct / attemptedTotal) * 100).toFixed(1) : 0;
+
+            // Fill UI Score Stats
+            document.getElementById('reportScore').innerText = `${score} / 180`;
+            document.getElementById('reportPercentage').innerText = `${percentage}% Overall Score`;
+            document.getElementById('reportCorrect').innerText = correct;
+            document.getElementById('reportAccuracy').innerText = `Accuracy: ${accuracy}%`;
+            document.getElementById('reportIncorrect').innerText = incorrect;
+            document.getElementById('reportNegative').innerText = incorrect;
+            document.getElementById('reportUnattempted').innerText = unattempted;
+
+            // Render Charts
+            renderCharts(correct, incorrect, unattempted, topicStats);
+
+            // Render Weak Areas Analysis
+            renderWeakAreas(topicStats);
+
+            // Render Solution Explanations
+            renderSolutionsList();
+
+            if (window.MathJax) MathJax.typesetPromise();
+        }
+
+        // CHARTS GENERATION
+        function renderCharts(correct, incorrect, unattempted, topicStats) {
+            // Pie Chart
+            const pieCtx = document.getElementById('performancePieChart').getContext('2d');
+            new Chart(pieCtx, {
+                type: 'doughnut',
+                data: {
+                    labels: ['Correct (+4)', 'Incorrect (-1)', 'Unattempted (0)'],
+                    datasets: [{
+                        data: [correct, incorrect, unattempted],
+                        backgroundColor: ['#22c55e', '#ef4444', '#cbd5e1'],
+                        borderWidth: 2
+                    }]
+                },
+                options: {
+                    responsive: true,
+                    maintainAspectRatio: false,
+                    plugins: { legend: { position: 'bottom' } }
+                }
+            });
+
+            // Topic Bar Chart
+            const barCtx = document.getElementById('topicBarChart').getContext('2d');
+            const labels = Object.keys(topicStats);
+            const accuracies = labels.map(l => {
+                const st = topicStats[l];
+                return st.total > 0 ? Math.round((st.correct / st.total) * 100) : 0;
+            });
+
+            new Chart(barCtx, {
+                type: 'bar',
+                data: {
+                    labels: labels,
+                    datasets: [{
+                        label: 'Accuracy %',
+                        data: accuracies,
+                        backgroundColor: '#3b82f6',
+                        borderRadius: 6
+                    }]
+                },
+                options: {
+                    responsive: true,
+                    maintainAspectRatio: false,
+                    scales: { y: { beginAtZero: true, max: 100 } },
+                    plugins: { legend: { display: false } }
+                }
+            });
+        }
+
+        // WEAK AREAS ANALYSIS
+        function renderWeakAreas(topicStats) {
+            const container = document.getElementById('weakAreasContainer');
+            container.innerHTML = '';
+
+            let weakFound = false;
+            Object.keys(topicStats).forEach(grp => {
+                const st = topicStats[grp];
+                const acc = st.total > 0 ? (st.correct / st.total) * 100 : 0;
+                if (acc < 60) {
+                    weakFound = true;
+                    const p = document.createElement('p');
+                    p.className = "flex items-start gap-2";
+                    p.innerHTML = `<i class="fa-solid fa-circle-exclamation text-amber-600 mt-1"></i> <span><strong>${grp} Elements:</strong> Accuracy is low (${acc.toFixed(0)}%). Re-read NCERT trends on electronic configurations, oxidation states, and inert pair effect for ${grp}.</span>`;
+                    container.appendChild(p);
+                }
+            });
+
+            if (!weakFound) {
+                container.innerHTML = `<p class="text-green-700 font-bold"><i class="fa-solid fa-circle-check mr-1"></i> Excellent performance! You demonstrated high proficiency across all P-Block element groups (Group 13 to 18).</p>`;
+            }
+        }
+
+        // DETAILED SOLUTIONS RENDER
+        function renderSolutionsList() {
+            const container = document.getElementById('solutionsListContainer');
+            container.innerHTML = '';
+
+            randomizedQuestions.forEach((q, idx) => {
+                const userAns = candidateAnswers[idx];
+                const isCorrect = userAns === q.correct;
+                const isUnattempted = userAns === undefined;
+
+                const solBox = document.createElement('div');
+                solBox.className = `p-4 rounded-xl border ${
+                    isCorrect ? 'bg-green-50/50 border-green-200' : isUnattempted ? 'bg-slate-50 border-slate-200' : 'bg-red-50/50 border-red-200'
+                }`;
+
+                solBox.innerHTML = `
+                    <div class="flex items-center justify-between border-b pb-2 mb-3">
+                        <span class="font-bold text-slate-800 text-sm">Question ${idx + 1} (${q.topicGroup})</span>
+                        <span class="text-xs font-bold px-2.5 py-0.5 rounded-full ${
+                            isCorrect ? 'bg-green-100 text-green-800' : isUnattempted ? 'bg-slate-200 text-slate-700' : 'bg-red-100 text-red-800'
+                        }">
+                            ${isCorrect ? 'Correct (+4)' : isUnattempted ? 'Unattempted (0)' : 'Incorrect (-1)'}
+                        </span>
+                    </div>
+
+                    <div class="text-sm font-medium text-slate-800 mb-3">${q.qText}</div>
+
+                    ${q.svgType ? `<div class="my-3 p-2 bg-white rounded-lg border flex justify-center">${getSVGDiagram(q.svgType)}</div>` : ''}
+
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-2 text-xs mb-3">
+                        <div class="p-2 rounded-lg ${isCorrect ? 'bg-green-100 text-green-900' : userAns !== undefined ? 'bg-red-100 text-red-900' : 'bg-slate-100 text-slate-700'}">
+                            <strong>Your Answer:</strong> ${userAns !== undefined ? `(${String.fromCharCode(65 + userAns)}) ${q.options[userAns]}` : 'Not Attempted'}
+                        </div>
+                        <div class="p-2 bg-emerald-100 text-emerald-900 rounded-lg">
+                            <strong>Correct Key:</strong> (${String.fromCharCode(65 + q.correct)}) ${q.options[q.correct]}
+                        </div>
+                    </div>
+
+                    <div class="text-xs text-slate-700 bg-white p-3 rounded-lg border border-slate-200">
+                        <strong class="text-blue-900 block mb-1"><i class="fa-solid fa-lightbulb text-yellow-500 mr-1"></i> Explanation:</strong>
+                        ${q.explanation}
+                    </div>
+                `;
+                container.appendChild(solBox);
+            });
+        }
+
+        // SVG CHEMICAL STRUCTURE DIAGRAM GENERATOR
+        function getSVGDiagram(type) {
+            if (type === 'diborane') {
+                return `
+                <svg width="280" height="120" viewBox="0 0 280 120" class="max-w-full">
+                    <line x1="60" y1="30" x2="100" y2="60" stroke="#1e293b" stroke-width="2"/>
+                    <line x1="60" y1="90" x2="100" y2="60" stroke="#1e293b" stroke-width="2"/>
+                    <line x1="220" y1="30" x2="180" y2="60" stroke="#1e293b" stroke-width="2"/>
+                    <line x1="220" y1="90" x2="180" y2="60" stroke="#1e293b" stroke-width="2"/>
+                    <path d="M 100,60 Q 140,10 180,60" fill="none" stroke="#2563eb" stroke-width="3" stroke-dasharray="4"/>
+                    <path d="M 100,60 Q 140,110 180,60" fill="none" stroke="#2563eb" stroke-width="3" stroke-dasharray="4"/>
+                    <circle cx="100" cy="60" r="14" fill="#3b82f6"/><text x="100" y="65" text-anchor="middle" fill="#fff" font-weight="bold" font-size="12">B</text>
+                    <circle cx="180" cy="60" r="14" fill="#3b82f6"/><text x="180" y="65" text-anchor="middle" fill="#fff" font-weight="bold" font-size="12">B</text>
+                    <circle cx="140" cy="25" r="10" fill="#22c55e"/><text x="140" y="29" text-anchor="middle" fill="#fff" font-weight="bold" font-size="10">H</text>
+                    <circle cx="140" cy="95" r="10" fill="#22c55e"/><text x="140" y="99" text-anchor="middle" fill="#fff" font-weight="bold" font-size="10">H</text>
+                    <circle cx="50" cy="25" r="10" fill="#64748b"/><text x="50" y="29" text-anchor="middle" fill="#fff" font-size="10">H</text>
+                    <circle cx="50" cy="95" r="10" fill="#64748b"/><text x="50" y="99" text-anchor="middle" fill="#fff" font-size="10">H</text>
+                    <circle cx="230" cy="25" r="10" fill="#64748b"/><text x="230" y="29" text-anchor="middle" fill="#fff" font-size="10">H</text>
+                    <circle cx="230" cy="95" r="10" fill="#64748b"/><text x="230" y="99" text-anchor="middle" fill="#fff" font-size="10">H</text>
+                </svg>`;
+            } else if (type === 'whiteP4') {
+                return `
+                <svg width="180" height="150" viewBox="0 0 180 150">
+                    <polygon points="90,20 30,120 150,120" fill="none" stroke="#dc2626" stroke-width="2"/>
+                    <line x1="90" y1="20" x2="90" y2="85" stroke="#dc2626" stroke-width="2"/>
+                    <line x1="30" y1="120" x2="90" y2="85" stroke="#dc2626" stroke-width="2"/>
+                    <line x1="150" y1="120" x2="90" y2="85" stroke="#dc2626" stroke-width="2"/>
+                    <circle cx="90" cy="20" r="12" fill="#ef4444"/><text x="90" y="24" text-anchor="middle" fill="#fff" font-weight="bold" font-size="11">P</text>
+                    <circle cx="30" cy="120" r="12" fill="#ef4444"/><text x="30" y="124" text-anchor="middle" fill="#fff" font-weight="bold" font-size="11">P</text>
+                    <circle cx="150" cy="120" r="12" fill="#ef4444"/><text x="150" y="124" text-anchor="middle" fill="#fff" font-weight="bold" font-size="11">P</text>
+                    <circle cx="90" cy="85" r="12" fill="#ef4444"/><text x="90" y="89" text-anchor="middle" fill="#fff" font-weight="bold" font-size="11">P</text>
+                    <text x="90" y="142" text-anchor="middle" fill="#991b1b" font-weight="bold" font-size="10">60° Angle Strain</text>
+                </svg>`;
+            } else if (type === 'xeF4') {
+                return `
+                <svg width="200" height="140" viewBox="0 0 200 140">
+                    <line x1="100" y1="70" x2="40" y2="30" stroke="#1e293b" stroke-width="2"/>
+                    <line x1="100" y1="70" x2="160" y2="30" stroke="#1e293b" stroke-width="2"/>
+                    <line x1="100" y1="70" x2="40" y2="110" stroke="#1e293b" stroke-width="2"/>
+                    <line x1="100" y1="70" x2="160" y2="110" stroke="#1e293b" stroke-width="2"/>
+                    <circle cx="100" cy="20" r="4" fill="#a855f7"/><circle cx="100" cy="28" r="4" fill="#a855f7"/>
+                    <circle cx="100" cy="112" r="4" fill="#a855f7"/><circle cx="100" cy="120" r="4" fill="#a855f7"/>
+                    <circle cx="100" cy="70" r="16" fill="#8b5cf6"/><text x="100" y="75" text-anchor="middle" fill="#fff" font-weight="bold" font-size="11">Xe</text>
+                    <circle cx="40" cy="30" r="10" fill="#22c55e"/><text x="40" y="34" text-anchor="middle" fill="#fff" font-size="10">F</text>
+                    <circle cx="160" cy="30" r="10" fill="#22c55e"/><text x="160" y="34" text-anchor="middle" fill="#fff" font-size="10">F</text>
+                    <circle cx="40" cy="110" r="10" fill="#22c55e"/><text x="40" y="114" text-anchor="middle" fill="#fff" font-size="10">F</text>
+                    <circle cx="160" cy="110" r="10" fill="#22c55e"/><text x="160" y="114" text-anchor="middle" fill="#fff" font-size="10">F</text>
+                </svg>`;
+            } else if (type === 'borazine') {
+                return `
+                <svg width="180" height="150" viewBox="0 0 180 150">
+                    <polygon points="90,25 140,55 140,105 90,135 40,105 40,55" fill="none" stroke="#2563eb" stroke-width="2"/>
+                    <circle cx="90" cy="25" r="11" fill="#3b82f6"/><text x="90" y="29" text-anchor="middle" fill="#fff" font-weight="bold" font-size="10">B</text>
+                    <circle cx="140" cy="55" r="11" fill="#1e40af"/><text x="140" y="59" text-anchor="middle" fill="#fff" font-weight="bold" font-size="10">N</text>
+                    <circle cx="140" cy="105" r="11" fill="#3b82f6"/><text x="140" y="109" text-anchor="middle" fill="#fff" font-weight="bold" font-size="10">B</text>
+                    <circle cx="90" cy="135" r="11" fill="#1e40af"/><text x="90" y="139" text-anchor="middle" fill="#fff" font-weight="bold" font-size="10">N</text>
+                    <circle cx="40" cy="105" r="11" fill="#3b82f6"/><text x="40" y="109" text-anchor="middle" fill="#fff" font-weight="bold" font-size="10">B</text>
+                    <circle cx="40" cy="55" r="11" fill="#1e40af"/><text x="40" y="59" text-anchor="middle" fill="#fff" font-weight="bold" font-size="10">N</text>
+                </svg>`;
+            } else if (type === 'hno3') {
+                return `
+                <svg width="200" height="120" viewBox="0 0 200 120">
+                    <line x1="100" y1="60" x2="40" y2="60" stroke="#1e293b" stroke-width="2"/>
+                    <line x1="100" y1="56" x2="150" y2="26" stroke="#ef4444" stroke-width="2"/>
+                    <line x1="100" y1="64" x2="150" y2="34" stroke="#ef4444" stroke-width="2"/>
+                    <line x1="100" y1="60" x2="150" y2="95" stroke="#ef4444" stroke-width="2"/>
+                    <circle cx="100" cy="60" r="14" fill="#1e40af"/><text x="100" y="65" text-anchor="middle" fill="#fff" font-weight="bold" font-size="12">N</text>
+                    <circle cx="40" cy="60" r="11" fill="#ef4444"/><text x="40" y="64" text-anchor="middle" fill="#fff" font-size="10">O</text>
+                    <circle cx="150" cy="30" r="11" fill="#ef4444"/><text x="150" y="34" text-anchor="middle" fill="#fff" font-size="10">O</text>
+                    <circle cx="150" cy="95" r="11" fill="#ef4444"/><text x="150" y="99" text-anchor="middle" fill="#fff" font-size="10">O</text>
+                    <circle cx="15" cy="60" r="8" fill="#64748b"/><text x="15" y="63" text-anchor="middle" fill="#fff" font-size="9">H</text>
+                </svg>`;
+            }
+            return '';
+        }
+
+        // GENERATE OFFICIAL SCORECARD IMAGE CANVAS & DOWNLOAD
+        function downloadScorecardCanvas() {
+            const canvas = document.getElementById('scorecardCanvas');
+            canvas.width = 800;
+            canvas.height = 500;
+            const ctx = canvas.getContext('2d');
+
+            // Background gradient
+            const grad = ctx.createLinearGradient(0, 0, 800, 500);
+            grad.addColorStop(0, '#0f172a');
+            grad.addColorStop(1, '#1e293b');
+            ctx.fillStyle = grad;
+            ctx.fillRect(0, 0, 800, 500);
+
+            // Card Header
+            ctx.fillStyle = '#ffffff';
+            ctx.font = 'bold 26px sans-serif';
+            ctx.fillText("Soumendra Sir's Biology Classes", 40, 50);
+
+            ctx.fillStyle = '#60a5fa';
+            ctx.font = '14px sans-serif';
+            ctx.fillText("Helpline WhatsApp: 8910587106", 40, 75);
+
+            ctx.fillStyle = '#f59e0b';
+            ctx.font = 'bold 18px sans-serif';
+            ctx.fillText("NEET CHEMISTRY XI EXAM SERIES 10 SET A: P-Block Elements", 40, 110);
+
+            // Divider Line
+            ctx.strokeStyle = '#334155';
+            ctx.lineWidth = 2;
+            ctx.beginPath();
+            ctx.moveTo(40, 130);
+            ctx.lineTo(760, 130);
+            ctx.stroke();
+
+            // Candidate Details
+            ctx.fillStyle = '#cbd5e1';
+            ctx.font = '16px sans-serif';
+            ctx.fillText(`Candidate Name: ${candidateName}`, 40, 170);
+
+            const scoreText = document.getElementById('reportScore').innerText;
+            const percentageText = document.getElementById('reportPercentage').innerText;
+            const correctText = document.getElementById('reportCorrect').innerText;
+            const incorrectText = document.getElementById('reportIncorrect').innerText;
+            const unattemptedText = document.getElementById('reportUnattempted').innerText;
+
+            // Score Box Graphic
+            ctx.fillStyle = '#1e3a8a';
+            ctx.roundRect(40, 200, 340, 180, 12);
+            ctx.fill();
+
+            ctx.fillStyle = '#ffffff';
+            ctx.font = 'bold 16px sans-serif';
+            ctx.fillText("OFFICIAL SCORE SUMMARY", 60, 235);
+
+            ctx.font = 'bold 36px sans-serif';
+            ctx.fillStyle = '#facc15';
+            ctx.fillText(scoreText, 60, 285);
+
+            ctx.font = '16px sans-serif';
+            ctx.fillStyle = '#93c5fd';
+            ctx.fillText(`Performance: ${percentageText}`, 60, 320);
+
+            // Breakdown Box Graphic
+            ctx.fillStyle = '#0f2942';
+            ctx.roundRect(420, 200, 340, 180, 12);
+            ctx.fill();
+
+            ctx.fillStyle = '#4ade80';
+            ctx.font = 'bold 16px sans-serif';
+            ctx.fillText(`Correct Responses: ${correctText} (+${correctText * 4} Marks)`, 440, 240);
+
+            ctx.fillStyle = '#f87171';
+            ctx.fillText(`Incorrect Responses: ${incorrectText} (-${incorrectText} Marks)`, 440, 285);
+
+            ctx.fillStyle = '#94a3b8';
+            ctx.fillText(`Unattempted: ${unattemptedText} Qs`, 440, 330);
+
+            // Watermark & Stamp
+            ctx.fillStyle = '#475569';
+            ctx.font = '12px sans-serif';
+            ctx.fillText("Verified by Soumendra Sir's CBT Automated Testing Portal - Anti-Tamper Secured", 40, 450);
+
+            // Trigger Download
+            const link = document.createElement('a');
+            link.download = `NEET_Scorecard_${candidateName.replace(/\s+/g, '_')}.png`;
+            link.href = canvas.toDataURL('image/png');
+            link.click();
+        }
+
+        // SEND RESULTS TO WHATSAPP 8910587106
+        function sendToWhatsApp() {
+            const scoreText = document.getElementById('reportScore').innerText;
+            const percentageText = document.getElementById('reportPercentage').innerText;
+            const correct = document.getElementById('reportCorrect').innerText;
+            const incorrect = document.getElementById('reportIncorrect').innerText;
+
+            const message = `Hello Soumendra Sir,\nI have completed the CBT Exam.\n\n*Candidate Name:* ${candidateName}\n*Topic:* NEET CHEMISTRY XI EXAM SERIES 10 SET A (P-Block Elements)\n*Final Score:* ${scoreText} (${percentageText})\n*Correct:* ${correct}\n*Incorrect:* ${incorrect}\n\nI have generated and saved my verified scorecard image snapshot.`;
+
+            const encodedMsg = encodeURIComponent(message);
+            window.open(`https://wa.me/918910587106?text=${encodedMsg}`, '_blank');
+        }
+    </script>
+</body>
+</html>
